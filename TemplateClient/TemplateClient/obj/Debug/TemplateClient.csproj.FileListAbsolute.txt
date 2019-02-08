@@ -1,0 +1,7 @@
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\bin\Debug\TemplateClient.exe
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\bin\Debug\TemplateClient.pdb
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\obj\Debug\TemplateClient.csprojResolveAssemblyReference.cache
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\obj\Debug\TemplateClient.exe
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\obj\Debug\TemplateClient.pdb
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\bin\Debug\ProgramMessage.dll
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateClient\TemplateClient\bin\Debug\ProgramMessage.pdb

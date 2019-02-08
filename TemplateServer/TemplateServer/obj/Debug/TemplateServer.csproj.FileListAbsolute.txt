@@ -1,0 +1,7 @@
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\bin\Debug\TemplateServer.exe
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\bin\Debug\TemplateServer.pdb
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\obj\Debug\TemplateServer.csprojResolveAssemblyReference.cache
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\obj\Debug\TemplateServer.exe
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\obj\Debug\TemplateServer.pdb
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\bin\Debug\ProgramMessage.dll
+C:\Users\map82_top\Documents\Visual Studio 2015\TemplateServer\TemplateServer\bin\Debug\ProgramMessage.pdb
