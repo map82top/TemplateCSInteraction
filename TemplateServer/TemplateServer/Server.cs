@@ -12,16 +12,22 @@ namespace TemplateServer
     {
         public string IPAdress { get; private set; }
         public int Port { get; private set; }
+        private IControler BaseControler { get; set; }
         public List<ServerClient> ConnectedClients { get; private set; }
 
         private TcpListener ServerPoint;
         private Thread ThreadCheckNewClient;
         //конструктор
-        public Server(string ipAdress, int port)
+        public Server(string ipAdress, int port, IControler baseControler)
         {
-            IPAdress = ipAdress;
-            Port = port;
-            ConnectedClients = new List<ServerClient>();
+            if (baseControler != null)
+            {
+                IPAdress = ipAdress;
+                Port = port;
+                BaseControler = baseControler;
+                ConnectedClients = new List<ServerClient>();
+            }
+            else throw new Exception("Не передано исключения по умолчанию");
         }
 
         //запускает сервер
@@ -41,6 +47,7 @@ namespace TemplateServer
             ThreadCheckNewClient.Start();
             return true;
         }
+
         private void CheckerNewClient()
         {
             while (ThreadCheckNewClient.ThreadState == ThreadState.Running)
@@ -48,7 +55,7 @@ namespace TemplateServer
                 if (ServerPoint.Pending())
                 {
                     //добавляем нового клиента
-                    ServerClient Client = new ServerClient(ServerPoint.AcceptTcpClient());
+                    ServerClient Client = new ServerClient(ServerPoint.AcceptTcpClient(),BaseControler);
                     Client.EventEndSession += HandlerEndSessionClient;
                     ConnectedClients.Add(Client); 
                 }

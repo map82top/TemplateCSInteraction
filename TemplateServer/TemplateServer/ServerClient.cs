@@ -16,17 +16,17 @@ namespace TemplateServer
         private TcpClient Client;
         private BinaryFormatter formatter;
         private Thread ThreadOfHandlerMsg;
-        private ControlerClient Controler;
+        private IControler Controler { get; set; }
         //уведомляет о получении нового сообщения от клиента
         public event NewMessage EventNewMessage;
         public event EndSession EventEndSession;
 
-        public ServerClient(TcpClient client)
+        public ServerClient(TcpClient client, IControler baseControler)
         {
             Client = client;
             formatter = new BinaryFormatter();
             //создаем обработчик сообшений от пользователя
-            Controler = new ControlerClient(this);
+            Controler = baseControler.GetNewControler(this);
             //обработка сообщений производитсва в отдельном потоке
             ThreadOfHandlerMsg = new Thread(StartReadMessage);
             ThreadOfHandlerMsg.Start();
@@ -35,7 +35,7 @@ namespace TemplateServer
         //закрывает подлючение
         public void Close()
         {
-            //отправляем серверу сообщение об окончании сессии
+            //отправляем клиенту сообщение об окончании сессии
             byte[] EndMsg = CreateTitleMessage((byte)InsideTypesMessage.EndSession, 0);
             try
             {

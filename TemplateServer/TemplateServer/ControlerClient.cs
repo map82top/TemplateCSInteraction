@@ -6,13 +6,17 @@ using ProgramMessage;
 
 namespace TemplateServer
 {
-    class ControlerClient
+    class ControlerClient:IControler
     {
-        private ServerClient Client;
+        private ServerClient client;
         public ControlerClient(ServerClient client)
         {
-            Client = client;
-            Client.EventNewMessage += HanlderNewMessage;
+            this.client = client;
+        }
+        public ServerClient Client
+        {
+            get {return client; }
+            set {client = value; }
         }
         public void HanlderNewMessage(IMessage msg)
         {
@@ -23,6 +27,10 @@ namespace TemplateServer
                     Client.SendMessage(TextMsg);
                     break;
             }
+        }
+        public IControler GetNewControler(ServerClient client)
+        {
+            return new ControlerClient(client);
         }
     }
 }
