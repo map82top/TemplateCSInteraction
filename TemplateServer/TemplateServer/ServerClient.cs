@@ -18,7 +18,6 @@ namespace TemplateServer
         private Thread ThreadOfHandlerMsg;
         private IControler Controler { get; set; }
         //уведомляет о получении нового сообщения от клиента
-        public event NewMessage EventNewMessage;
         public event EndSession EventEndSession;
 
         public ServerClient(TcpClient client, IControler baseControler)
@@ -168,11 +167,10 @@ namespace TemplateServer
                 ObjectMsg = (IMessage)formatter.Deserialize(MemStream);
             }
             //генерируем событие
-            EventNewMessage(ObjectMsg);
+            Controler.HanlderNewMessage(ObjectMsg);
         }
     }
 
-    delegate void NewMessage(IMessage msg);
     delegate void EndSession(ServerClient Client);
 
     enum InsideTypesMessage
